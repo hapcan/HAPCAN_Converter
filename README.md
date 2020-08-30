@@ -1,3 +1,3 @@
 # HAPCAN Converter
 
- The Windows software to convert HAPCAN firmware file *.hex to *.haf.
+The Windows software to convert HAPCAN firmware file *.hex to *.haf.
