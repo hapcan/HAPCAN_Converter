@@ -1,6 +1,6 @@
-# HAPCAN Converter 3.3
+# HAPCAN Converter 4.0
 
-The Windows software to convert HAPCAN firmware file *.hex to *.haf.
+The Windows 64bit software to convert HAPCAN firmware file *.hex to *.haf.
 
 Webpage: https://hapcan.com/software/hac/
 
