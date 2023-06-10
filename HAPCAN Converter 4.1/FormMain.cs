@@ -48,10 +48,10 @@ public partial class FormMain : FormBase
                         firmVer = Int32.Parse(line.Substring(19, 2), System.Globalization.NumberStyles.HexNumber);
                         firmRev = Int32.Parse(line.Substring(21, 4), System.Globalization.NumberStyles.HexNumber);
                         //hardType = 0xFFFF means that it is not for PIC18F26K80
-                        if (hardType != 0xFFFF)
+                        if (hardType != 0xFFFF && hardVer == 3)
                         {
                             fileOK = true;
-                            _processor = "Univ3Type";
+                            _processor = "PIC18F26K80";
                             break;
                         }
                     }
@@ -65,10 +65,10 @@ public partial class FormMain : FormBase
                         firmVer = Int32.Parse(line.Substring(19, 2), System.Globalization.NumberStyles.HexNumber);
                         firmRev = Int32.Parse(line.Substring(21, 4), System.Globalization.NumberStyles.HexNumber);
                         //hardType = 0xFFFF means that it is not for PIC18F27Q83
-                        if (hardType != 0xFFFF)
+                        if (hardType != 0xFFFF && hardVer == 4)
                         {
                             fileOK = true;
-                            _processor = "Univ4Type";
+                            _processor = "PIC18F27Q83";
                             break;
                         }
                     }
