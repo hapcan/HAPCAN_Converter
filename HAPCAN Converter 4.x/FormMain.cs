@@ -4,7 +4,7 @@ public partial class FormMain : FormBase
 {
     string _filePath = "";
     string _hafFileName = "";
-    string _processor = "";
+    Processor _processor;
     
 
     public FormMain()
@@ -13,7 +13,11 @@ public partial class FormMain : FormBase
         Text = Application.ProductName;
         base.labelTitle.Text = Application.ProductName;
     }
-
+    private enum Processor
+    {
+        PIC18F26K80,
+        PIC18F27Q83
+    }
     private void buttonOpenFile_Click(object sender, EventArgs e)
     {
 
@@ -51,7 +55,7 @@ public partial class FormMain : FormBase
                         if (hardType != 0xFFFF && hardVer == 3)
                         {
                             fileOK = true;
-                            _processor = "PIC18F26K80";
+                            _processor = Processor.PIC18F26K80;
                             break;
                         }
                     }
@@ -68,7 +72,7 @@ public partial class FormMain : FormBase
                         if (hardType != 0xFFFF && hardVer == 4)
                         {
                             fileOK = true;
-                            _processor = "PIC18F27Q83";
+                            _processor = Processor.PIC18F27Q83;
                             break;
                         }
                     }
@@ -89,7 +93,7 @@ public partial class FormMain : FormBase
                     //create file name
                     _hafFileName = $"{hardTypeString}_{hardVer}-{appType}-{appVer}-{firmVer}-rev{firmRev}";
                     //display opened file
-                    DisplayFileInfo(_filePath, _processor, hardTypeString, hardType, hardVer, appType, appVer, firmVer, firmRev);
+                    DisplayFileInfo(_filePath, _processor.ToString(), hardTypeString, hardType, hardVer, appType, appVer, firmVer, firmRev);
                     buttonConvert.Enabled = true;
                 }
                 else
@@ -149,11 +153,11 @@ public partial class FormMain : FormBase
         try
         {
             //convert to haf file
-            if (_processor == "Univ3Type")
+            if (_processor == Processor.PIC18F26K80)
             {
                 (hafFile, hafFileChecksum, hafFileAddressMax) = Convert.ConvertFileUniv3Type(_filePath);
             }
-            if (_processor == "Univ4Type")
+            if (_processor == Processor.PIC18F27Q83)
             {
                 (hafFile, hafFileChecksum, hafFileAddressMax) = Convert.ConvertFileUniv4Type(_filePath);
             }
