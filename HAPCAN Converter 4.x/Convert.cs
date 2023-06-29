@@ -127,7 +127,7 @@ internal class Convert
             hardTypeString = $"0x{hexBuffer[adrFrom + 0x10].ToString("X2")}{hexBuffer[adrFrom + 0x11].ToString("X2")}";
         hafFileLine = $"<      Firmware: {hardTypeString} " +
             $"{hexBuffer[adrFrom + 0x12]}.{hexBuffer[adrFrom + 0x13]}." +
-            $"{hexBuffer[adrFrom + 0x14]}.{hexBuffer[0x1015]} " +
+            $"{hexBuffer[adrFrom + 0x14]}.{hexBuffer[adrFrom + 0x15]} " +
             $"rev.{hexBuffer[adrFrom + 0x16] * 256 + hexBuffer[adrFrom + 0x17]}       >";
         hafFileLine = hafFileLine.Remove(1, (hafFileLine.Length - 43) / 2);                 //centre the string
         hafFileLine = hafFileLine.Remove(41, hafFileLine.Length - 43);
